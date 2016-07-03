@@ -1,0 +1,19 @@
+---
+- hosts: node
+  tasks:
+  - name: copy yum docker.repo
+    template:
+      src: conf/docker.repo
+      dest: /etc/yum.repos.d/docker.repo
+  - name: install docker-engine
+    yum: name=docker-engine
+  - name: add user to docker group
+    shell: "gpasswd -a {{ ansible_ssh_user }} docker"
+  - name: start docker service
+    service: 
+      name: docker 
+      state: started
+  - name: configure docker service to load on boot
+    shell: chkconfig docker on
+  - name: pull swarm image
+    shell: docker pull swarm
