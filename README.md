@@ -34,5 +34,5 @@ brew install terraform-inventory
 ### Run ansible
 
 ```
-ansible-playbook -i /usr/local/bin/terraform-inventory -u marquis ansible/playbook.yaml --sudo --ask-sudo-pass
+ansible-playbook -i /usr/local/bin/terraform-inventory -u <remote_username> ansible/playbook.yaml --sudo --ask-sudo-pass
 ```
