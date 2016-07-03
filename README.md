@@ -20,7 +20,7 @@ terraform apply
 Disable ssh host key checking in ~/.ansible.cfg
 
 ```
-defaults]
+[defaults]
 host_key_checking = False
 ```
 
